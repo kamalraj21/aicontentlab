@@ -11,8 +11,8 @@
     body { font-family: 'Inter', system-ui, sans-serif; }
     h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
     .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%); }
-    .demo-card { transition: all 0.3s ease; }
-    .demo-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+    .demo-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .demo-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4); }
   </style>
 </head>
 <body class="bg-zinc-950 text-zinc-100">
@@ -24,34 +24,34 @@
         I design <span class="text-emerald-400">AI-powered content systems</span><br>that deliver massive business impact
       </h1>
       <p class="text-2xl text-zinc-400 max-w-3xl mx-auto mb-10">
-        Built production RAG + MCP + Agentic systems at Salesforce that cut content creation time by 80%.
+        Staff Technical Writer @ Salesforce | Built production RAG + MCP + Agentic systems that reduced content creation time by 80%.
       </p>
     </div>
   </section>
 
-  <!-- Interactive Demos -->
+  <!-- Live AI Demos -->
   <section class="py-24 bg-zinc-900" id="demos">
     <div class="max-w-5xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-4">Live AI Demos</h2>
-      <p class="text-center text-zinc-400 mb-12">Interactive showcases of my production systems</p>
+      <p class="text-center text-zinc-400 mb-12">Interactive demonstrations of systems I’ve built in production</p>
 
       <!-- RAG Demo -->
       <div class="demo-card bg-zinc-800 rounded-3xl p-8 mb-12">
         <h3 class="text-2xl font-semibold mb-2">RAG Simulator</h3>
-        <p class="text-zinc-400 mb-6">Try my Retrieval-Augmented Generation system</p>
+        <p class="text-zinc-400 mb-6">Retrieval-Augmented Generation System</p>
         <div class="flex gap-4">
           <input id="rag-input" type="text" placeholder="Enter a technical topic (e.g. OpenVINO inference pipeline)" 
                  class="flex-1 bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4 focus:outline-none focus:border-emerald-500">
           <button onclick="runRAGDemo()" 
                   class="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-black font-semibold rounded-2xl">Generate</button>
         </div>
-        <div id="rag-output" class="mt-6 hidden bg-black/50 rounded-2xl p-6 text-sm leading-relaxed"></div>
+        <div id="rag-output" class="mt-6 hidden bg-black/60 rounded-2xl p-6 text-sm leading-relaxed"></div>
       </div>
 
       <!-- Agentic Workflow -->
       <div class="demo-card bg-zinc-800 rounded-3xl p-8 mb-12">
         <h3 class="text-2xl font-semibold mb-2">Agentic Workflow Visualizer</h3>
-        <p class="text-zinc-400 mb-6">Multi-agent system (Research → Draft → Review)</p>
+        <p class="text-zinc-400 mb-6">Multi-agent system with Human-in-the-Loop</p>
         <button onclick="runAgenticDemo()" 
                 class="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-black font-semibold rounded-2xl mb-6">
           Run Full Workflow Simulation
@@ -63,7 +63,7 @@
       <div class="demo-card bg-zinc-800 rounded-3xl p-8">
         <h3 class="text-2xl font-semibold mb-6">ContentOps + AI Publishing Pipeline</h3>
         <div class="grid grid-cols-4 gap-4 text-center text-sm">
-          <div onclick="highlightStep(1)" class="cursor-pointer bg-zinc-900 hover:bg-emerald-900 p-6 rounded-2xl transition" id="step1">1. Content Ingestion</div>
+          <div onclick="highlightStep(1)" class="cursor-pointer bg-zinc-900 hover:bg-emerald-900 p-6 rounded-2xl transition" id="step1">1. Ingestion</div>
           <div onclick="highlightStep(2)" class="cursor-pointer bg-zinc-900 hover:bg-emerald-900 p-6 rounded-2xl transition" id="step2">2. RAG Processing</div>
           <div onclick="highlightStep(3)" class="cursor-pointer bg-zinc-900 hover:bg-emerald-900 p-6 rounded-2xl transition" id="step3">3. Agent Review</div>
           <div onclick="highlightStep(4)" class="cursor-pointer bg-zinc-900 hover:bg-emerald-900 p-6 rounded-2xl transition" id="step4">4. Publish</div>
@@ -80,12 +80,12 @@
       output.classList.remove('hidden');
       output.innerHTML = `
         <p class="text-emerald-400 mb-3 font-medium">Retrieved Context:</p>
-        <p class="mb-4">• Salesforce CX release notes for ${input}<br>
+        <p class="mb-4">• Salesforce CX release notes for <strong>${input}</strong><br>
            • Internal knowledge base (Q3 2025)<br>
-           • Previous similar documents (vector similarity: 0.94)</p>
+           • Similar documents (vector similarity: 0.94)</p>
         <p class="text-emerald-400 mb-3 font-medium">Generated Output:</p>
-        <p class="text-zinc-300">"${input} involves a multi-step inference pipeline using OpenVINO runtime..."</p>
-        <p class="text-xs text-zinc-500 mt-4">— Simulated Production RAG System (MCP + Agentic Search)</p>
+        <p class="text-zinc-300">"${input} involves a multi-step inference pipeline using OpenVINO runtime with model optimization..."</p>
+        <p class="text-xs text-zinc-500 mt-6">— Simulated Production RAG + MCP System</p>
       `;
     }
 
@@ -93,10 +93,10 @@
       const output = document.getElementById('agentic-output');
       output.innerHTML = `
         <div class="bg-zinc-900 rounded-2xl p-6 space-y-3">
-          <p class="text-emerald-400">🔍 Research Agent: Gathering context...</p>
-          <p class="text-emerald-400">📝 Draft Agent: Generating structured content...</p>
-          <p class="text-emerald-400">✅ Review Agent: Checking accuracy + guardrails...</p>
-          <p class="text-emerald-400 font-medium">✅ Human-in-the-Loop: Ready for SME approval</p>
+          <p class="text-emerald-400">🔍 Research Agent: Gathering relevant context...</p>
+          <p class="text-emerald-400">📝 Draft Agent: Generating structured technical content...</p>
+          <p class="text-emerald-400">✅ Review Agent: Applying guardrails and quality checks...</p>
+          <p class="text-emerald-400 font-medium">✅ Human-in-the-Loop: Ready for final SME approval</p>
         </div>
       `;
     }
