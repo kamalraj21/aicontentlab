@@ -24,7 +24,7 @@
         I design <span class="text-emerald-400">AI-powered content systems</span><br>that deliver massive business impact
       </h1>
       <p class="text-2xl text-zinc-400 max-w-3xl mx-auto mb-10">
-        Built production RAG + Agentic systems at Salesforce that cut content creation time by 80%.
+        Built production RAG + MCP + Agentic systems at Salesforce that cut content creation time by 80%.
       </p>
     </div>
   </section>
@@ -33,7 +33,7 @@
   <section class="py-24 bg-zinc-900" id="demos">
     <div class="max-w-5xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-4">Live AI Demos</h2>
-      <p class="text-center text-zinc-400 mb-12">Built by me • Interactive showcases of my production systems</p>
+      <p class="text-center text-zinc-400 mb-12">Interactive showcases of my production systems</p>
 
       <!-- RAG Demo -->
       <div class="demo-card bg-zinc-800 rounded-3xl p-8 mb-12">
@@ -72,14 +72,11 @@
     </div>
   </section>
 
-  <!-- Rest of your content (metrics, projects, expertise) remains the same as previous version -->
-
   <script>
     function runRAGDemo() {
       const input = document.getElementById('rag-input').value.trim();
       const output = document.getElementById('rag-output');
       if (!input) return;
-
       output.classList.remove('hidden');
       output.innerHTML = `
         <p class="text-emerald-400 mb-3 font-medium">Retrieved Context:</p>
@@ -87,7 +84,7 @@
            • Internal knowledge base (Q3 2025)<br>
            • Previous similar documents (vector similarity: 0.94)</p>
         <p class="text-emerald-400 mb-3 font-medium">Generated Output:</p>
-        <p class="text-zinc-300">"${input} involves a multi-step inference pipeline using OpenVINO runtime with model optimization and GPU offloading..."</p>
+        <p class="text-zinc-300">"${input} involves a multi-step inference pipeline using OpenVINO runtime..."</p>
         <p class="text-xs text-zinc-500 mt-4">— Simulated Production RAG System (MCP + Agentic Search)</p>
       `;
     }
@@ -95,10 +92,10 @@
     function runAgenticDemo() {
       const output = document.getElementById('agentic-output');
       output.innerHTML = `
-        <div class="bg-zinc-900 rounded-2xl p-6">
-          <p class="text-emerald-400 mb-4">🔍 Research Agent: Gathering context...</p>
-          <p class="text-emerald-400 mb-4">📝 Draft Agent: Generating structured content...</p>
-          <p class="text-emerald-400 mb-4">✅ Review Agent: Checking accuracy + guardrails...</p>
+        <div class="bg-zinc-900 rounded-2xl p-6 space-y-3">
+          <p class="text-emerald-400">🔍 Research Agent: Gathering context...</p>
+          <p class="text-emerald-400">📝 Draft Agent: Generating structured content...</p>
+          <p class="text-emerald-400">✅ Review Agent: Checking accuracy + guardrails...</p>
           <p class="text-emerald-400 font-medium">✅ Human-in-the-Loop: Ready for SME approval</p>
         </div>
       `;
